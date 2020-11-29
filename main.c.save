@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+
+	############################
+
+	Tommi Kunnari
+	0543382
+	25.11.2020
+	Tietorakenteet ja algoritmit
+	Harjoitustyö
+
+	############################
+
+	Tämä ohjelma luo annetusta listasta numeroita
+	itsensä tasapainoittavan binäärisen hakupuun ja
+	tulostaa tämän. Lisäksi se esittää puuta rakentaessaan
+	suoritettavat välivaiheet askel askeleelta.
+	Käyttämäni tietorakenne on AVL-puu.
+
+	Ohjelma osaa suorittaa tasapainoittamisen vaatimat operaatiot:
+	rotaatiot, lapsisolmun vaihdon ja isommatkin puurakenteen
+	muutokset. Ohjelma on tyypitetty vahvan rekursiivisesti.
+
+	############################
+
+*/
+
+struct Node {
+	int val;
+	struct Node * left;
+	struct Node * right;
+};
+
+int main() {
+	int nodes[] = {2,4,6,8,10,12,14,30,28};
+printf("Self-Balancing Binary Search Tree\n");
+	
+}
+
+struct Node * addNode(struct Node * current, int value) {
+
+	if (value >= current->val) {
+		if (current->right != NULL) {
+			addNode(current->right, value);
+		}
+	} else {
+		if (current->left != NULL) {
+			addNode(current->left, value);
+		}
+	}
+
+	struct Node * new = NULL;
+	new = (struct Node*)malloc(sizeof(struct Node));
+	new->val = value;
+
+	if (current == NULL) {
+		return new;
+	}
+}
